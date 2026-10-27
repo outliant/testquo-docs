@@ -1,4 +1,4 @@
-﻿# Testquo Docs
+# Testquo Docs
 
 Hosted user guide for **Testquo Desktop**.
 

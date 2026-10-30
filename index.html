@@ -899,6 +899,7 @@
         <a href="#introduction">Introduction</a>
         <a href="#purpose">Purpose</a>
         <a href="#quick-start">Quick start</a>
+        <a href="#register">Register for access</a>
         <a href="#tech-specs">Tech specs</a>
       </nav>
       <nav class="nav-group" data-area="hub" aria-label="Everyday work">
@@ -930,6 +931,7 @@
         <option value="#introduction">Introduction</option>
         <option value="#purpose">Purpose</option>
         <option value="#quick-start">Quick start</option>
+        <option value="#register">Register for access</option>
         <option value="#tech-specs">Tech specs</option>
         <option value="#main-ui">Main screen</option>
         <option value="#studio">Studio</option>
@@ -963,6 +965,7 @@
             <span class="chip"><strong>Audience</strong> QA engineers &amp; leads</span>
             <span class="chip"><strong>Platforms</strong> Windows &amp; macOS</span>
             <span class="chip"><strong>Installers</strong> <a href="#quick-start">Windows &amp; macOS downloads</a></span>
+            <span class="chip"><strong>Access</strong> <a href="#register">Register for access</a></span>
           </div>
         </header>
 
@@ -1163,7 +1166,8 @@
           </p>
 
           <div class="tip">
-            <strong>First launch:</strong> complete <strong>User access</strong> (GitHub sign-in → register → admin approval) before anything else — see After install below.<br />
+            <strong>First launch:</strong> complete <strong>User access</strong> before anything else —
+            full steps in <a href="#register"><strong>Register for access</strong></a>.<br />
             <strong>Fast path:</strong> once approved, on the welcome screen open a recent project (Continue where you left off) —
             that rebinds this window and takes you straight to the main screen.<br />
             <strong>Fresh start:</strong> click <strong>Bind New Agent →</strong> and walk the left rail below.
@@ -1228,26 +1232,10 @@
           <ol class="steps">
             <li>
               <strong>Register for access (required before bind)</strong><br />
-              The first time you open Testquo (or when access is not approved yet), the <strong>User access</strong> dialog appears.
-              You cannot bind or open a project until an admin approves you.
-              <ol class="steps">
-                <li>
-                  <strong>Sign in to continue</strong> — click <strong>Continue with GitHub</strong> and finish the browser Device Flow
-                  (or paste a personal access token with <code>repo</code> scope if browser login is unavailable).
-                </li>
-                <li>
-                  <strong>Register for access</strong> — click <strong>Register this GitHub account</strong>.
-                  That sends a one-time request to the shared Users sheet.
-                </li>
-                <li>
-                  <strong>Pending approval</strong> — wait for an admin to set your status to <code>approved</code> in the Users sheet,
-                  then click <strong>Refresh status</strong> in the dialog. You will not need to register again on this machine.
-                </li>
-              </ol>
-              <div class="tip" style="margin-top:0.75rem">
-                If the dialog says access was <strong>rejected</strong> or <strong>revoked</strong>, contact your Testquo admin.
-                After you are approved, the welcome screen unlocks and you can continue below.
-              </div>
+              Open Testquo → complete the <strong>User access</strong> dialog (GitHub sign-in → register → admin approval).
+              You cannot bind or open a project until you are approved.
+              <br />
+              <a class="dl-link" href="#register" style="display:inline-block;margin-top:0.55rem">Open the Register for access guide →</a>
             </li>
             <li>
               <strong>Start Bind New Agent</strong><br />
@@ -1290,6 +1278,113 @@
           <div class="tip warn">
             <strong>Remember:</strong> one window = one suite. Opening a recent project or finishing Bind New Agent locks this window to that folder.
             To switch clients later, use <strong>Bind a different project</strong> on the main bar (not <strong>Open Project</strong>, which only opens the folder in an editor).
+          </div>
+        </section>
+
+        <section class="doc area-start" id="register" data-search="register access user access github continue with github device flow personal access token pending approval approved rejected revoked users sheet refresh status admin registry">
+          <header class="sec-head">
+            <span class="sec-badge">Start here</span>
+            <h2>Register for access</h2>
+          </header>
+          <p class="lead">
+            Testquo gates the app behind a shared <strong>Users</strong> registry.
+            Sign in with GitHub, register once, wait for an admin to approve — then bind projects as usual.
+          </p>
+
+          <div class="tip">
+            This step comes <strong>before</strong> <a href="#quick-start">Bind New Agent</a>.
+            If you already see the welcome screen with recent projects and can open them, you are already approved on this machine.
+          </div>
+
+          <h3>What you need</h3>
+          <ul>
+            <li>Testquo installed (<a href="#quick-start">Quick start</a> installers).</li>
+            <li>A GitHub account your org uses for QA (the same identity admins recognize).</li>
+            <li>An admin who can set your status to <code>approved</code> in the shared Users sheet.</li>
+          </ul>
+
+          <h3>Step-by-step</h3>
+          <ol class="steps">
+            <li>
+              <strong>Open Testquo</strong><br />
+              On first launch (or whenever access is not approved), the <strong>User access</strong> dialog appears over the welcome screen.
+            </li>
+            <li>
+              <strong>Sign in to continue</strong><br />
+              Click <strong>Continue with GitHub</strong>. Complete the browser Device Flow when prompted
+              (enter the code on GitHub’s device page, then return to Testquo).
+              <ul>
+                <li>
+                  If browser login is unavailable, expand <strong>Or paste a personal access token</strong>,
+                  paste a token with <code>repo</code> scope, and click <strong>Save token</strong>.
+                </li>
+                <li>
+                  After sign-in you should see your GitHub identity (for example <code>@your-login</code>) in the dialog.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Register this GitHub account</strong><br />
+              When the dialog title is <strong>Register for access</strong>, click
+              <strong>Register this GitHub account</strong>.
+              That is a one-time request to the shared Users sheet — you should not need to register again on this computer.
+            </li>
+            <li>
+              <strong>Wait for admin approval</strong><br />
+              The dialog moves to <strong>Pending approval</strong>. Ask your Testquo admin to set your row to
+              <code>approved</code> in the Users sheet.
+            </li>
+            <li>
+              <strong>Refresh status</strong><br />
+              Click <strong>Refresh status</strong>. When approved, the dialog shows <strong>You're approved</strong>
+              and the welcome screen unlocks so you can open a recent project or start
+              <strong>Bind New Agent →</strong>.
+            </li>
+          </ol>
+
+          <h3>Dialog states</h3>
+          <table>
+            <thead>
+              <tr><th>What you see</th><th>What to do</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Sign in to continue</strong></td>
+                <td>Use <strong>Continue with GitHub</strong> (or a PAT). Identifies who you are.</td>
+              </tr>
+              <tr>
+                <td><strong>Register for access</strong></td>
+                <td>Click <strong>Register this GitHub account</strong> once.</td>
+              </tr>
+              <tr>
+                <td><strong>Pending approval</strong></td>
+                <td>Wait for an admin, then <strong>Refresh status</strong>.</td>
+              </tr>
+              <tr>
+                <td><strong>You're approved</strong></td>
+                <td>Close the dialog and continue to welcome / bind.</td>
+              </tr>
+              <tr>
+                <td><strong>Access rejected</strong> / <strong>Access revoked</strong></td>
+                <td>Contact your Testquo admin. Refresh after they restore access.</td>
+              </tr>
+              <tr>
+                <td><strong>Access check failed</strong></td>
+                <td>Check network, try again, or ask an admin if the Users registry URL is configured for this install.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Tips</h3>
+          <ul>
+            <li>You can close the dialog with <strong>Not now</strong> / <strong>Close</strong>, but bind and open project stay blocked until you are approved.</li>
+            <li>Use <strong>Sign out</strong> in the dialog if you signed in with the wrong GitHub account, then sign in again and register that account.</li>
+            <li>After approval, reopening Testquo on this machine should keep you cleared (local cache). A revoke in the Users sheet takes effect after refresh / restart.</li>
+          </ul>
+
+          <div class="tip">
+            Next: return to <a href="#quick-start">Quick start → After install</a> and continue with
+            <strong>Bind New Agent</strong>, or open a recent project from welcome.
           </div>
         </section>
 
@@ -3709,7 +3804,7 @@ Promote through UAT / PROD only when your project workflow requires it — never
           </ul>
         </section>
 
-        <section class="doc area-reference" id="faq" data-search="faq tips troubleshooting verify view report jenkins open project bind different clear log cursor run agent studio group rebase sit api usage protected branch integration coming soon zoom keyboard shortcut ctrl plus minus scale">
+        <section class="doc area-reference" id="faq" data-search="faq tips troubleshooting verify view report jenkins open project bind different clear log cursor run agent studio group rebase sit api usage protected branch integration coming soon zoom keyboard shortcut ctrl plus minus scale register access github approval">
           <header class="sec-head">
             <span class="sec-badge">Reference</span>
             <h2>Tips &amp; FAQ</h2>
@@ -3727,6 +3822,13 @@ Promote through UAT / PROD only when your project workflow requires it — never
               No. Bind a project folder and connect <strong>Cursor</strong>. Add <strong>Jira</strong>, <strong>Testpad</strong>,
               <strong>Google Sheets</strong>, and <strong>Jenkins</strong> when that workflow actually starts.
               Optional tools (Guru, Figma, Slack, BrowserStack, Decodo) can wait.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Why can’t I bind or open a project yet?</h3>
+            <p>
+              You must finish <strong>User access</strong> first: GitHub sign-in → register → admin approval.
+              See the full guide: <a href="#register">Register for access</a>.
             </p>
           </div>
           <div class="card">

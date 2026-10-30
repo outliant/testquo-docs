@@ -1152,7 +1152,7 @@
           </div>
         </section>
 
-        <section class="doc area-start" id="quick-start" data-search="quick start install download windows macos dmg exe xattr gatekeeper bind new agent wizard project source connections agent rules bind project create clone attach playwright selenium cursor">
+        <section class="doc area-start" id="quick-start" data-search="quick start install download windows macos dmg exe xattr gatekeeper register access github continue with github pending approval users sheet bind new agent wizard project source connections agent rules bind project create clone attach playwright selenium cursor">
           <header class="sec-head">
             <span class="sec-badge">Start here</span>
             <h2>Quick start</h2>
@@ -1163,7 +1163,8 @@
           </p>
 
           <div class="tip">
-            <strong>Fast path:</strong> on the welcome screen, open a recent project (Continue where you left off) —
+            <strong>First launch:</strong> complete <strong>User access</strong> (GitHub sign-in → register → admin approval) before anything else — see After install below.<br />
+            <strong>Fast path:</strong> once approved, on the welcome screen open a recent project (Continue where you left off) —
             that rebinds this window and takes you straight to the main screen.<br />
             <strong>Fresh start:</strong> click <strong>Bind New Agent →</strong> and walk the left rail below.
           </div>
@@ -1225,6 +1226,29 @@
 
           <h3>After install</h3>
           <ol class="steps">
+            <li>
+              <strong>Register for access (required before bind)</strong><br />
+              The first time you open Testquo (or when access is not approved yet), the <strong>User access</strong> dialog appears.
+              You cannot bind or open a project until an admin approves you.
+              <ol class="steps">
+                <li>
+                  <strong>Sign in to continue</strong> — click <strong>Continue with GitHub</strong> and finish the browser Device Flow
+                  (or paste a personal access token with <code>repo</code> scope if browser login is unavailable).
+                </li>
+                <li>
+                  <strong>Register for access</strong> — click <strong>Register this GitHub account</strong>.
+                  That sends a one-time request to the shared Users sheet.
+                </li>
+                <li>
+                  <strong>Pending approval</strong> — wait for an admin to set your status to <code>approved</code> in the Users sheet,
+                  then click <strong>Refresh status</strong> in the dialog. You will not need to register again on this machine.
+                </li>
+              </ol>
+              <div class="tip" style="margin-top:0.75rem">
+                If the dialog says access was <strong>rejected</strong> or <strong>revoked</strong>, contact your Testquo admin.
+                After you are approved, the welcome screen unlocks and you can continue below.
+              </div>
+            </li>
             <li>
               <strong>Start Bind New Agent</strong><br />
               On welcome, click <strong>Bind New Agent →</strong>. The left rail is exactly four steps:

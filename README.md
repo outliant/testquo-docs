@@ -1,4 +1,4 @@
-# Testquo Docs
+﻿# Testquo Docs
 
 Hosted user guide for **Testquo Desktop**.
 
@@ -16,6 +16,6 @@ Or open `index.html` / `user-guide.html` locally (keep the `screenshots/` folder
 | user-guide.html | End-user guide for QA engineers |
 | screenshots/ | Live UI captures used by the guide |
 
-Installer downloads point at [outliant/ai-agent-testquo](https://github.com/outliant/ai-agent-testquo/releases) (currently **v0.0.1**).
+Installer downloads point at [outliant/ai-agent-testquo](https://github.com/outliant/ai-agent-testquo/releases) (currently **v0.0.2**).
 
 Source of truth: `docs/` in [testquo-app](https://github.com/noli-fornoles-iv/testquo-app).

@@ -1008,7 +1008,7 @@
             <article class="pillar">
               <span class="pillar-num" aria-hidden="true">3</span>
               <h3>You stay at the gates</h3>
-              <p>After bind: Approve Testplan → Automate Now → Verify Automation Script → Execute Run. The agent commits locally; you push and open a SIT PR from Workspace → Git.</p>
+              <p>After bind: Approve Testplan → Automate Now → Verify Automation Script → Execute Run. The agent commits locally; you ship with <strong>Review commits &amp; PRs</strong> from Workspace → Git.</p>
             </article>
           </div>
 
@@ -1135,7 +1135,7 @@
               <tr>
                 <td><strong>Safe promotion</strong></td>
                 <td>
-                  The agent commits locally only. You push and open a SIT PR from Workspace → Git.
+                  The agent commits locally only. You ship with <strong>Review commits &amp; PRs</strong> from Workspace → Git.
                   Protected branches (<code>sit</code>, <code>uat</code>, <code>main</code>/<code>master</code>) are not auto-merged by the agent.
                 </td>
               </tr>
@@ -1176,8 +1176,9 @@
           <h3>Download installers</h3>
           <p>
             Current release <strong>v<span data-tq-version>0.0.2</span></strong> from
-            <a href="https://github.com/outliant/ai-agent-testquo/releases" data-tq-releases-page>outliant/ai-agent-testquo</a>
-            (sign in to GitHub if the release repo is private). Links update when the guide is republished with a new app version.
+            <a href="https://github.com/outliant/ai-agent-testquo/releases" data-tq-releases-page>outliant/ai-agent-testquo</a>.
+            The release repo is <strong>private</strong> — sign in to GitHub with an account that can access the Outliant org, then open the download link.
+            Anonymous clicks hit GitHub’s 404 page. Links update when the guide is republished with a new app version.
           </p>
           <table>
             <thead>
@@ -1200,14 +1201,13 @@
               </tr>
               <tr>
                 <td><strong>macOS</strong> (Intel)</td>
-                <td><code data-tq-file="mac-x64">Testquo-0.0.2-mac-x64.dmg</code></td>
-                <td><a class="dl-link" data-tq-asset="mac-x64" href="https://github.com/outliant/ai-agent-testquo/releases/download/v0.0.2/Testquo-0.0.2-mac-x64.dmg">Download .dmg</a></td>
+                <td colspan="2">Not published for this release. CI builds Apple Silicon only (<code>mac-arm64</code>). Use an Apple Silicon Mac, or ask for an Intel build to be added to the release pipeline.</td>
               </tr>
             </tbody>
           </table>
           <div class="tip">
             Unsigned builds may show SmartScreen (Windows) or Gatekeeper (macOS) warnings — expected until packages are signed/notarized.
-            Prefer the DMG that matches your Mac chip (Apple menu → About This Mac).
+            Confirm your Mac chip under Apple menu → About This Mac (Apple Silicon = M1/M2/M3/M4).
           </div>
 
           <h3>Install on Windows</h3>
@@ -1219,7 +1219,7 @@
 
           <h3>Install on macOS</h3>
           <ol class="steps">
-            <li>Download the matching DMG (<code data-tq-file="mac-arm64">Testquo-0.0.2-mac-arm64.dmg</code> or <code data-tq-file="mac-x64">Testquo-0.0.2-mac-x64.dmg</code>) and open it.</li>
+            <li>Download the Apple Silicon DMG (<code data-tq-file="mac-arm64">Testquo-0.0.2-mac-arm64.dmg</code>) and open it. Intel Macs are not covered by the current release assets.</li>
             <li>Drag <strong>Testquo</strong> into <strong>Applications</strong>.</li>
             <li>
               Clear the quarantine flag (needed for unsigned builds when macOS blocks the app). In Terminal:
@@ -1270,8 +1270,8 @@
               <strong>First useful work on the main screen</strong><br />
               Typical next moves: connect Cursor if you skipped it; open <strong>Tickets</strong> (after Jira + Save filter)
               or <strong>Studio</strong> for Suite pulse / Chat with AI; use <strong>Workspace → Git → Use my branch</strong>
-              if you need <code>qa/&lt;username&gt;</code> on an attached local repo. Push and <strong>Push &amp; open SIT PR</strong>
-              only after you have local commits to share — not required on day one.
+              if you need <code>qa/&lt;username&gt;</code> on an attached local repo. Use <strong>Review commits &amp; PRs</strong>
+              (or Push for a WIP backup) only after you have local commits to share — not required on day one.
             </li>
           </ol>
 
@@ -1415,7 +1415,8 @@
           <h3>Supported platforms &amp; installers</h3>
           <p>
             Download the current release from the <a href="#quick-start">Quick start</a> table, or open
-            <a href="https://github.com/outliant/ai-agent-testquo/releases" data-tq-releases-page>outliant/ai-agent-testquo releases</a>.
+            <a href="https://github.com/outliant/ai-agent-testquo/releases" data-tq-releases-page>outliant/ai-agent-testquo releases</a>
+            (sign in with Outliant access — the release repo is private).
           </p>
           <table>
             <thead>
@@ -1434,8 +1435,7 @@
               </tr>
               <tr>
                 <td><strong>macOS</strong> (Intel)</td>
-                <td><code data-tq-file="mac-x64">Testquo-0.0.2-mac-x64.dmg</code></td>
-                <td><a class="dl-link" data-tq-asset="mac-x64" href="https://github.com/outliant/ai-agent-testquo/releases/download/v0.0.2/Testquo-0.0.2-mac-x64.dmg">Download .dmg</a></td>
+                <td colspan="2">Not published — release CI produces <code>mac-arm64</code> only on <code>macos-latest</code>.</td>
               </tr>
             </tbody>
           </table>
@@ -1462,7 +1462,7 @@
               <tr><td><strong>AI engine</strong></td><td><strong>Cursor</strong> — sign in or paste an API key under Settings → Configurations and Connections. Required for agent runs (Studio / ticket / regression agent steps).</td></tr>
               <tr><td><strong>Automation suites</strong></td><td>Bound projects are <strong>Playwright</strong> or <strong>Selenium + Cucumber</strong> (create, clone, or attach in Bind New Agent).</td></tr>
               <tr><td><strong>Node.js &amp; npm</strong></td><td>Needed when scaffolding a <strong>new</strong> suite from Testquo, and for running tests in the project terminal. Node.js <strong>20+</strong> is the documented baseline.</td></tr>
-              <tr><td><strong>Git</strong></td><td>Required to <strong>Clone from GitHub</strong>, and for Workspace Git (Fetch / Pull / Push / Rebase onto sit / Push &amp; open SIT PR). Not required only to open an already-attached local folder with no remote work.</td></tr>
+              <tr><td><strong>Git</strong></td><td>Required to <strong>Clone from GitHub</strong>, and for Workspace Git (Fetch / Pull / Push / Rebase onto base / Review commits &amp; PRs). Not required only to open an already-attached local folder with no remote work.</td></tr>
               <tr><td><strong>Optional tools</strong></td><td>Jira, Testpad, Google (Data Resources), Jenkins, Guru, Figma, BrowserStack, Slack, Decodo — connect when that workflow starts; not all are required on day one.</td></tr>
             </tbody>
           </table>
@@ -1948,7 +1948,7 @@
             <li>Filter Backlog to your sprint / labels; click the Action that matches the stage.</li>
             <li>For a multi-ticket change, select members → Create ticket group → continue on Groups.</li>
             <li>After Automate Now, Verify locally, then Execute Run for the formal environment.</li>
-            <li>Push and open the SIT PR from Workspace → Git when you are ready to share.</li>
+            <li>Ship with <strong>Review commits &amp; PRs</strong> from Workspace → Git when you are ready to share.</li>
           </ol>
 
           <div class="tip warn">
@@ -2600,7 +2600,7 @@
             <li>Review or lightly edit features, pages, step-defs, and fixtures after Automate Now.</li>
             <li>Run npm / Playwright / tooling commands in the integrated terminal.</li>
             <li>Ask the agent about this suite or request script edits in chat.</li>
-            <li>Switch to <code>qa/&lt;username&gt;</code>, sync with origin, rebase onto sit, and open a SIT PR.</li>
+            <li>Switch to <code>qa/&lt;username&gt;</code>, sync with origin, rebase onto base, and ship with <strong>Review commits &amp; PRs</strong>.</li>
           </ul>
 
           <h3>Map of the Workspace page</h3>
@@ -2616,8 +2616,8 @@
               </tr>
               <tr>
                 <td><strong>Git bar (top of center)</strong></td>
-                <td>Current branch, staged / modified / untracked counts, Use my branch, Fetch, Pull, Push, Rebase onto sit, Push &amp; open SIT PR</td>
-                <td>Stay on your personal branch; sync and share when ready</td>
+                <td>Current branch, staged / modified / untracked counts, Use my branch, Fetch, Pull, Push, Rebase onto base, Match base, Push all &amp; open PR, <strong>Review commits &amp; PRs</strong> (primary)</td>
+                <td>Stay on your personal branch; ship selected groups via Review (preferred) or push the whole branch</td>
               </tr>
               <tr>
                 <td><strong>Editor</strong></td>
@@ -2653,7 +2653,7 @@
           <h3>Protected branches (important)</h3>
           <p>
             Do <strong>not</strong> develop on <code>sit</code>, <code>uat</code>, or <code>main</code>/<code>master</code>.
-            Day-to-day work belongs on <code>qa/&lt;username&gt;</code>. Push and SIT PR are blocked on protected branches.
+            Day-to-day work belongs on <code>qa/&lt;username&gt;</code>. Push, Review, and Push all &amp; open PR are blocked on protected branches.
             Automate Now commits locally only and will not create or switch branches for you — use the Git bar.
             The agent never auto-merges uat or main.
           </p>
@@ -2662,7 +2662,7 @@
           <ol class="steps">
             <li>Open <strong>Workspace</strong> after bind.</li>
             <li>Read the Git bar branch name. If you are on sit / uat / main (or another non-qa branch), a warning appears.</li>
-            <li>Click <strong>Use my branch</strong> — creates or checks out <code>qa/&lt;username&gt;</code> (base preference sit → uat → main/master).</li>
+            <li>Click <strong>Use my branch</strong> — creates or checks out <code>qa/&lt;username&gt;</code> (integration base preference sit → dev → uat; otherwise ensure <code>develop</code> from main/master).</li>
             <li>If the tree is dirty with mostly Testquo-managed files, Use my branch may offer to stash and reapply; follow the prompt.</li>
             <li>Optional: open the branch dropdown to switch or delete a local non-protected branch; after Fetch you can prune local branches whose remotes were deleted.</li>
           </ol>
@@ -2714,26 +2714,41 @@
             <li>Confirm <strong>Send to GitHub</strong> when the prep says you are ready.</li>
           </ol>
 
-          <h3>Process 7 — Rebase onto sit</h3>
+          <h3>Process 7 — Rebase onto base</h3>
           <ol class="steps">
             <li>Commit (or stash) local work first.</li>
-            <li><strong>Fetch</strong>, then click <strong>Rebase onto sit</strong> to replay your <code>qa/&lt;username&gt;</code> commits on the latest sit.</li>
-            <li>Resolve conflicts if Git reports them, then continue. Use this before a clean SIT PR when sit moved ahead.</li>
+            <li><strong>Fetch</strong>, then click <strong>Rebase onto base</strong> to replay your <code>qa/&lt;username&gt;</code> commits on the latest sit (or next integration base).</li>
+            <li>Resolve conflicts if Git reports them, then continue. Use this before Review when sit moved ahead.</li>
           </ol>
 
-          <h3>Process 8 — Push &amp; open SIT PR</h3>
+          <h3>Process 7b — Match base (discard local)</h3>
           <ol class="steps">
-            <li>On <code>qa/&lt;username&gt;</code>, click <strong>Push &amp; open SIT PR</strong>.</li>
-            <li>Same guided prep as Push (commit / update / ready). Confirm send — Testquo pushes and opens or updates a PR into <code>sit</code>.</li>
+            <li>Only when you intentionally want <code>qa/&lt;username&gt;</code> to match sit (or the next integration base) and are willing to throw away local work on that tip.</li>
+            <li>Click <strong>Match base</strong>. Read the consequences dialog carefully — unfinished edits and local-only tip commits are discarded; this is not a rebase.</li>
+            <li>Confirm <strong>Yes, discard local &amp; match base</strong> only if that is what you want. Prefer <strong>Rebase onto base</strong> when you need to keep your commits. Match base does not force-push to GitHub.</li>
+          </ol>
+
+          <h3>Process 8 — Review commits &amp; PRs (primary ship)</h3>
+          <ol class="steps">
+            <li>On <code>qa/&lt;username&gt;</code>, click the primary <strong>Review commits &amp; PRs</strong> button.</li>
+            <li>Select ticket / TicketGroup / regression groups, review diffs, choose a shared conventional publish branch <code>feat|fix|chore/&lt;scope&gt;</code> (for example <code>feat/otfw-1746</code>).</li>
+            <li>Confirm ship — Testquo cherry-picks onto the publish branch and opens or updates a PR into the integration base without leaving your user branch. Optional checkbox syncs <code>qa/&lt;username&gt;</code> as well.</li>
             <li>Review the PR on GitHub; do not merge into uat/main from the agent.</li>
+          </ol>
+
+          <h3>Process 8b — Push all &amp; open PR</h3>
+          <ol class="steps">
+            <li>Only when you intentionally want to ship <strong>everything</strong> on <code>qa/&lt;username&gt;</code> in one PR.</li>
+            <li>Click <strong>Push all &amp; open PR</strong> (muted control next to Match base). Same guided prep as Push (commit / update / ready).</li>
+            <li>Confirm send — Testquo pushes the entire user branch and opens or updates one PR into <code>sit</code>. Prefer Process 8 for day-to-day ticket ships.</li>
           </ol>
 
           <h3>Typical day after Automate Now</h3>
           <ol class="steps">
             <li>Workspace → confirm you are on <code>qa/&lt;username&gt;</code> (Use my branch if not).</li>
             <li>Open changed feature/page files; skim in the editor or Ask Testquo for a quick review.</li>
-            <li>Fetch → Rebase onto sit if teammates merged recently.</li>
-            <li>Push, or <strong>Push &amp; open SIT PR</strong> when ready for review.</li>
+            <li>Fetch → Rebase onto base if teammates merged recently.</li>
+            <li><strong>Review commits &amp; PRs</strong> to ship selected groups (or Push for a WIP backup only).</li>
             <li>Continue Verify / Execute from Tickets or Regression — not from Workspace Git.</li>
           </ol>
 
@@ -2748,14 +2763,16 @@
               <tr><td>Refresh</td><td>Reload staged / modified / untracked counts</td></tr>
               <tr><td><strong>Fetch</strong></td><td>Update remote refs only</td></tr>
               <tr><td><strong>Pull</strong></td><td>Update current branch from upstream (stash if dirty)</td></tr>
-              <tr><td><strong>Push</strong></td><td>Guided send of local commits to GitHub</td></tr>
-              <tr><td><strong>Rebase onto sit</strong></td><td>Replay your qa branch onto latest sit</td></tr>
-              <tr><td><strong>Push &amp; open SIT PR</strong></td><td>Push + open/update PR into sit</td></tr>
+              <tr><td><strong>Push</strong></td><td>Upload <code>qa/&lt;username&gt;</code> commits to GitHub without opening a PR</td></tr>
+              <tr><td><strong>Rebase onto base</strong></td><td>Replay your qa branch onto latest sit / integration base</td></tr>
+              <tr><td><strong>Match base</strong></td><td>Make your qa tip match sit (discards local commits + unfinished edits; confirms first; no force-push)</td></tr>
+              <tr><td><strong>Push all &amp; open PR</strong></td><td>Push every commit on your branch + open/update one sit PR (secondary; prefer Review)</td></tr>
+              <tr><td><strong>Review commits &amp; PRs</strong></td><td>Primary ship: selective groups → <code>feat|fix|chore/&lt;scope&gt;</code> → PR into base</td></tr>
             </tbody>
           </table>
 
           <div class="tip warn">
-            <strong>Remember:</strong> Automate Now / Fix may leave local commits only. Until you Push (or Push &amp; open SIT PR),
+            <strong>Remember:</strong> Automate Now / Fix may leave local commits only. Until you Push or ship via <strong>Review commits &amp; PRs</strong>,
             teammates will not see those changes. Never develop on protected branches.
           </div>
         </section>
@@ -2815,7 +2832,7 @@
             <tbody>
               <tr><td><strong>Cursor agent</strong></td><td>Any agent run (Automate, Generate, Fix, chat)</td><td>—</td></tr>
               <tr><td><strong>Atlassian Jira</strong></td><td>Tickets Backlog / ticket groups from Jira</td><td>You only do Regression (no Jira backlog)</td></tr>
-              <tr><td><strong>GitHub</strong></td><td>Private clone, Push, Push &amp; open SIT PR</td><td>Local-only folder with no remote work</td></tr>
+              <tr><td><strong>GitHub</strong></td><td>Private clone, Push, Review commits &amp; PRs</td><td>Local-only folder with no remote work</td></tr>
               <tr><td><strong>Google Sheets / Docs</strong></td><td>Data Resources workbook + Sync</td><td>—</td></tr>
               <tr><td><strong>Testpad</strong></td><td>Plans, Testplans Prepare / Review</td><td>—</td></tr>
               <tr><td><strong>Jenkins</strong></td><td>Execute Where = Jenkins / Both; Reports Host online</td><td>You only run This machine</td></tr>
@@ -2895,7 +2912,7 @@
             <div class="topic-path"><span class="crumb">Connections</span><span class="sep">›</span><span class="here">GitHub</span></div>
             <h3>3. GitHub</h3>
 
-          <p>Needed for private repos and Workspace → Git (Fetch / Pull / Push / Rebase onto sit / Push &amp; open SIT PR).</p>
+          <p>Needed for private repos and Workspace → Git (Fetch / Pull / Push / Rebase onto base / Review commits &amp; PRs).</p>
           <ol class="steps">
             <li>
               <strong>Sign in (pick one):</strong>
@@ -3776,7 +3793,7 @@
               <tr>
                 <td>Git</td>
                 <td>Per-user branch <code>qa/&lt;username&gt;</code></td>
-                <td>Push / Rebase onto sit / open SIT PR from <strong>Workspace → Git</strong> — not the agent</td>
+                <td>Push / Rebase onto base / <strong>Review commits &amp; PRs</strong> from Workspace → Git — not the agent</td>
               </tr>
             </tbody>
           </table>
@@ -3790,7 +3807,7 @@ Reports: review → Rerun / Fix → Publish / Host online
      ↓
 Regression (optional): New flow → bind coverage → Approve → Automate → Verify → Execute Regression
      ↓
-Workspace Git: Use my branch (qa/&lt;user&gt;) → Fetch / Pull → Rebase onto sit → Push &amp; open SIT PR
+Workspace Git: Use my branch (qa/&lt;user&gt;) → Fetch / Pull → Rebase onto base → Review commits &amp; PRs
      ↓
 Promote through UAT / PROD only when your project workflow requires it — never auto-merge protected branches</pre>
 
@@ -3936,7 +3953,7 @@ Promote through UAT / PROD only when your project workflow requires it — never
             <h3>Agent pushed my branch / opened a PR?</h3>
             <p>
               It should not. Agents commit locally on <code>qa/&lt;username&gt;</code> only.
-              You <strong>Push</strong>, <strong>Rebase onto sit</strong>, and <strong>Push &amp; open SIT PR</strong> from Workspace → Git.
+              You <strong>Push</strong>, <strong>Rebase onto base</strong>, and ship with <strong>Review commits &amp; PRs</strong> from Workspace → Git (<strong>Push all &amp; open PR</strong> remains as a secondary control for the whole branch).
             </p>
           </div>
           <div class="card">
@@ -4104,10 +4121,10 @@ Promote through UAT / PROD only when your project workflow requires it — never
 
         var base = "https://github.com/" + owner + "/" + repo + "/releases";
         var tag = "v" + version;
+        // Only assets actually uploaded by release.yml (host-arch Mac on macos-latest = arm64).
         var files = {
           win: "Testquo-Setup-" + version + ".exe",
-          "mac-arm64": "Testquo-" + version + "-mac-arm64.dmg",
-          "mac-x64": "Testquo-" + version + "-mac-x64.dmg"
+          "mac-arm64": "Testquo-" + version + "-mac-arm64.dmg"
         };
 
         document.querySelectorAll("[data-tq-version]").forEach(function (node) {
